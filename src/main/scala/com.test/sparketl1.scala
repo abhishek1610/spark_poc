@@ -23,6 +23,7 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 
+
 object sparketl1 {
   def main(args: Array[String]) {
     val sc = new SparkContext(new SparkConf().setAppName("Spark Count").setMaster("local[2]"))
@@ -42,17 +43,44 @@ object sparketl1 {
 
     val inp_withmd5 = inp1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
 
-    val out = inp_withmd5.leftOuterJoin(snpsht_withmd5)
+
+    //identify new or changed records
+
+    //to do set end date in dw to null
+    val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
+
+
+    //above record  do a inner join with snapshot to identify change recods
+    val change_stage1 = out.map(x => (x.split(",")(0), x))
+
+//New changed records
+   val change = change_stage1.join(snpsht1).map(_._2._1)
+
+  //Old changed records sanpshot //to do end date
+  val change1 = change_stage1.join(snpsht1).map(_._2._2)
+
+
+
+
+
+
+
 
    // val snpsht1 = snpsht.map(x => (x.split(",")(0), x))
 
-     // inp.map(line => line.split(",")).map(line => (line(0),line))
+     // inp.map(line => line.split(",")).map({line => (line(0),line))
 
    // println(snpsht_withmd5.collect().mkString(":::")()
 
-    println(out.collect().mkString(":::"))
+    println(change.collect().mkString(":::"))
 
-  //TO DO take this value from HBASE
+   /*def test_change(inp: RDD) : Boolean =
+    { val test = inp.map{case (key, value) => value }.map {case (key, value) => value}
+      val check= test:RDD[Any].filter
+
+    } */
+
+      //TO DO take this value from HBASE
    // val seed=200  // lookup file for sequence generator
 
 /*  to implement suurogate key
