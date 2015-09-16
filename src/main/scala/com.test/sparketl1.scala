@@ -18,6 +18,9 @@
 
 
 //import com.test.CDC_check
+
+import java.text.SimpleDateFormat
+
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
@@ -49,30 +52,41 @@ object sparketl1 {
     //to do set end date in dw to null
     val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
 
+    //adding end_dt is null start date as current date
+
+
+    //val current_day = new SimpleDateFormat()  to add start date based on current date
+    val final_out1 = out.map ( x => (x,"17-Sep-2015","31-Dec-99999") )
+
 
     //above record  do a inner join with snapshot to identify change recods
     val change_stage1 = out.map(x => (x.split(",")(0), x))
+  val tab = sc.textFile(args(2))
 
+    val table = tab.map(x => (x.split(",")(0), x))
 //New changed records
-   val change = change_stage1.join(snpsht1).map(_._2._1)
+   val change = change_stage1.join(table).map(_._2._1)
 
-  //Old changed records sanpshot //to do end date
-  val change1 = change_stage1.join(snpsht1).map(_._2._2)
+  //Old changed records  //to do end date in table but first remove existing end_date
+  val change1 = change_stage1.join(table).map(_._2._2)
+    val final_out_ind = change1.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7)))
+    val final_out_changes_existing = final_out_ind.map(x => (x, "17-Sep-2015"))
 
-
-
-
-
-
+    //to doo merge final_out1 and final_out_changes_existing using union to create final scd2 type table
 
 
-   // val snpsht1 = snpsht.map(x => (x.split(",")(0), x))
+
+
+
+    // val snpsht1 = snpsht.map(x => (x.split(",")(0), x))
 
      // inp.map(line => line.split(",")).map({line => (line(0),line))
 
    // println(snpsht_withmd5.collect().mkString(":::")()
 
-    println(change.collect().mkString(":::"))
+    println(final_out_changes_existing.collect().mkString(":::"))
+
+  }
 
    /*def test_change(inp: RDD) : Boolean =
     { val test = inp.map{case (key, value) => value }.map {case (key, value) => value}
@@ -99,7 +113,7 @@ object sparketl1 {
     //val out=items_and_ids_mapped.saveAsTextFile(String)
 
     //System.out.println(charCounts.collect().mkString(", "))
-  }
+
 
   def md5Hash(text: String) : String =
     java.security.MessageDigest.getInstance("MD5").digest(text.getBytes()).map(0xFF & _).map { "%02x".format(_) }.foldLeft(""){_ + _}
