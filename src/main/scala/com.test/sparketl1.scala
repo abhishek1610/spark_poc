@@ -84,7 +84,7 @@ object sparketl1 {
     val final_out_changes_existing = final_out_ind.join(change1_latest_rec).map(_._2._1)
 
 
-    val table_reformat = change1.map(x => x.split(",")).map(p => ( (p(0),p(7).toInt),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8))))
+    val table_reformat = tab.map(x => x.split(",")).map(p => ( (p(0),p(7).toInt),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8))))
   // identify un chnged records and old version of hanged records..older thn latest one
      val unchanged = table_reformat.leftOuterJoin(change1_latest_rec).filter(_._2._2 == None).map(_._2._1)
 
