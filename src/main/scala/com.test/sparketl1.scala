@@ -52,7 +52,7 @@ object sparketl1 {
     //to do set end date in dw to null //joining on md5 of all cols
     val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
     //making it tuple of no of cols
-    val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-99999"))
+    val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-9999"))
 
     //adding end_dt is null start date as current date
 
@@ -67,33 +67,36 @@ object sparketl1 {
   val tab = sc.textFile(args(2))
 
     val table = tab.map(x => (x.split(",")(0), x))
-//New changed records
+//New changed records //not required
    val change = change_stage1.join(table).map(_._2._1)
 
   //Old changed records  //to do end date in table but first remove existing end_date
     //identify the lates records in table that needs to be endated using max(startdate) = p(7)  Note - Date is kept as numeric like 13072015 is 13 sep 2015
+    //chane1 can be cache
   val change1 = change_stage1.join(table).map(_._2._2)
 
     val change1_latest_rec = change1.map(x => x.split(",")).map(p => (p(0),p(7).toInt)).reduceByKey((x, y) =>  math.max(x, y)).map(p => (p,1)) //setting dummy
 
 
-    //join with table based on key and end date
-    val table_reformat = tab.map(x => x.split(",")).map(p =>((p(0),p(7)) , (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),"17-sep-2015")))
-    val act_table_chng = change1_latest_rec.join(change1_latest_rec)
+    //join with table based on key and end start date
 
     val final_out_ind = change1.map(x => x.split(",")).map(p => ( (p(0),p(7).toInt),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),"17-sep-2015")))
-    val final_out_changes_existing = final_out_ind.join(act_table_chng).map(_._1)
+    val final_out_changes_existing = final_out_ind.join(change1_latest_rec).map(_._2._1)
 
-  // identify un chnged records
-     val unchanged = table.leftOuterJoin(change_stage1).filter(_._2._2 == None).map(_._2._1).map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+
+    val table_reformat = change1.map(x => x.split(",")).map(p => ( (p(0),p(7).toInt),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8))))
+  // identify un chnged records and old version of hanged records..older thn latest one
+     val unchanged = table_reformat.leftOuterJoin(change1_latest_rec).filter(_._2._2 == None).map(_._2._1)
+
+    //But above will also not have the multiple old versions of changed rcords.to add
     //to doo merge final_out1 and final_out_changes_existing using union to create final scd2 type table
 
     //the final record set is union of 2 changed (new) + new +changed (existing) + not changed (exising)
 
-   // val final1 = out1.union(final_out_changes_existing).union(unchanged)
+    val final1 = out1.union(final_out_changes_existing).union(unchanged)
 
 
-    println(final_out_changes_existing.collect().mkString(":::"))
+    println(final1.collect().mkString(":::"))
    //final1.saveAsTextFile("table_final")
 
   }
