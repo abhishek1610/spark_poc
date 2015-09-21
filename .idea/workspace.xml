@@ -7,6 +7,84 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50d10a68-c084-4357-ab41-217c165ca6de" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_amazonaws_aws_java_sdk_1_7_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_codahale_metrics_metrics_core_3_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_codahale_metrics_metrics_graphite_3_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_codahale_metrics_metrics_json_3_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_codahale_metrics_metrics_jvm_3_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_annotations_2_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_core_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_databind_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_google_code_gson_gson_2_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_jamesmurty_utils_java_xmlbuilder_0_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__com_typesafe_config_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__commons_codec_commons_codec_1_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__commons_io_commons_io_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__io_netty_netty_3_6_6_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__javax_xml_stream_stax_api_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__joda_time_joda_time_2_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__net_java_dev_jets3t_jets3t_0_9_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_avro_avro_1_7_6_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_curator_curator_client_2_6_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_directory_api_api_asn1_api_1_0_0_M20.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_directory_api_api_util_1_0_0_M20.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_directory_server_apacheds_i18n_2_0_0_M15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_directory_server_apacheds_kerberos_codec_2_0_0_M15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_annotations_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_auth_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_aws_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_client_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_common_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_hdfs_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_mapreduce_client_app_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_mapreduce_client_common_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_mapreduce_client_core_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_mapreduce_client_jobclient_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_mapreduce_client_shuffle_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_yarn_api_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_yarn_client_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_yarn_common_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_hadoop_hadoop_yarn_server_common_2_5_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_httpcomponents_httpclient_4_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_httpcomponents_httpcore_4_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_mesos_mesos_shaded_protobuf_0_18_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_spark_spark_core_2_10_1_2_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_spark_spark_network_common_2_10_1_2_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_apache_spark_spark_network_shuffle_2_10_1_2_0_cdh5_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_codehaus_jackson_jackson_jaxrs_1_8_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_codehaus_jackson_jackson_xc_1_8_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_continuation_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_http_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_io_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_jndi_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_plus_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_security_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_server_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_servlet_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_util_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_webapp_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_jetty_xml_8_1_14_v20131031.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_orbit_javax_activation_1_1_0_v201105071233.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_orbit_javax_mail_glassfish_1_4_1_v201005082020.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_eclipse_jetty_orbit_javax_transaction_1_1_1_v201105210645.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_fusesource_leveldbjni_leveldbjni_all_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_mortbay_jetty_jetty_util_6_1_26_cloudera_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_scala_lang_scala_compiler_2_10_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_scala_lang_scala_reflect_2_10_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_slf4j_jul_to_slf4j_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_slf4j_slf4j_api_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_7_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_spark_project_akka_akka_actor_2_10_2_2_3_shaded_protobuf.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_spark_project_akka_akka_remote_2_10_2_2_3_shaded_protobuf.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_spark_project_akka_akka_slf4j_2_10_2_2_3_shaded_protobuf.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_spark_project_protobuf_protobuf_java_2_4_1_shaded.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\abhishek\workspace\spark_poc\.idea\libraries\Maven__org_xerial_snappy_snappy_java_1_0_4_1.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark_poc1.iml" afterPath="$PROJECT_DIR$/spark_poc1.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com.test/sparketl1.scala" afterPath="$PROJECT_DIR$/src/main/scala/com.test/sparketl1.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spark_poc1.iws" />
@@ -33,8 +111,20 @@
       <file leaf-file-name="sparketl1.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com.test/sparketl1.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33539096">
-              <caret line="86" column="28" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.67794317">
+              <caret line="110" column="67" selection-start-line="110" selection-start-column="67" selection-end-line="110" selection-end-column="67" />
+              <folding>
+                <element signature="e#838#871#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="misc.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -44,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/table.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -54,7 +144,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -125,13 +215,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/scala/SparkWordcount" />
         <option value="$PROJECT_DIR$/src/main/scala/com.cloudera/SparkWordcount" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/scala/com.cloudera/sparketl1" />
         <option value="$PROJECT_DIR$/lookup.txt" />
         <option value="$PROJECT_DIR$/src/main/scala/com.test/CDC_check.scala" />
         <option value="$PROJECT_DIR$/snapshot.txt" />
         <option value="$PROJECT_DIR$/input.txt" />
         <option value="$PROJECT_DIR$/table.txt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/scala/com.test/sparketl1.scala" />
       </list>
     </option>
@@ -149,7 +239,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
+    <option name="width" value="1604" />
     <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -163,7 +253,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -174,7 +264,135 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spark_poc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
@@ -457,36 +675,42 @@
       <option name="project" value="LOCAL" />
       <updated>1442605229639</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="final1">
+      <created>1442605261661</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1442605261661</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1604" height="876" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985657" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32985657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32985657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -617,7 +841,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#838#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -691,7 +917,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#838#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -772,7 +1000,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#838#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -787,7 +1017,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#838#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -802,7 +1034,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#838#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -821,13 +1055,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -859,14 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -903,19 +1122,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/table.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com.test/sparketl1.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33539096">
-          <caret line="86" column="28" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
-          <folding />
+        <state vertical-scroll-proportion="0.67794317">
+          <caret line="110" column="67" selection-start-line="110" selection-start-column="67" selection-end-line="110" selection-end-column="67" />
+          <folding>
+            <element signature="e#838#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
