@@ -27,6 +27,8 @@ import org.apache.spark.SparkConf
 import org.apache.spark.sql
 import org.apache.spark.rdd.RDD
 
+case class Person (id: String, depid: String,name: String,sur: String,smtg: String, dept: String,grade: String )
+
 
 object sparketl1 {
   def main(args: Array[String]) {
@@ -102,14 +104,16 @@ object sparketl1 {
 
     //102,456,rajib,,32,mts,A,13082015,31-Dec-2015
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    import sqlContext.createSchemaRDD
 
-    case class Person(id: String, depid: String,name: String,sur: String,smtg: String, dept: String,grade: String     )
 
-    val test_sql1 = final1.map(p => Person(p(0), p(1),p(2),p(3),p(4),p(5),p(6))
-      test_sql1.registerTempTable("person1")
+    val test_sql1 = final1.map(p => Person(p._1,p._2,p._3,p._4,p._5,p._6,p._7)).toSchemaRDD
+
+    println(test_sql1.collect().mkString(":::"))
+      test_sql1.registerTempTable("test_sql1")
 
     // SQL statements can be run by using the sql methods provided by sqlContext.
-    val teenagers = sqlContext.sql("SELECT id FROM people WHERE name='rajib'")
+    val teenagers = sqlContext.sql("SELECT id FROM test_sql1 WHERE name='rajib'")
 
     // The results of SQL queries are SchemaRDDs and support all the normal RDD operations.
     // The columns of a row in the result can be accessed by ordinal.
