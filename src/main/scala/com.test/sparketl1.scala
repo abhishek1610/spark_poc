@@ -26,6 +26,10 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import org.apache.spark.sql
 import org.apache.spark.rdd.RDD
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar
 
 case class Person (id: String, depid: String,name: String,sur: String,smtg: String, dept: String,grade: String )
 
@@ -106,6 +110,15 @@ object sparketl1 {
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
     import sqlContext.createSchemaRDD
 
+
+
+    val today = Calendar.getInstance().getTime()
+    val minuteFormat = new SimpleDateFormat("mm")
+    val currentMinuteAsString = minuteFormat.format(today)
+   /* DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+    val dat1= dateFormat.format(date)*/
+    println(today) //2014/08/06 15:59:48
 
     val test_sql1 = final1.map(p => Person(p._1,p._2,p._3,p._4,p._5,p._6,p._7)).toSchemaRDD
 
