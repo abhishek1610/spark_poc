@@ -44,20 +44,40 @@ object sparketl1 {
 
     val snpsht = sc.textFile(args(1))
 
-    val snpsht1 = snpsht.map(x => (x.split(",")(0), x))
+    val inp_tuple = inp.map(x => x.split(",")).map(p => (p(0),p(0),p(1)))
 
-    val snpsht_withmd5 = snpsht1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
+    val inp_tuple1 = inp.map(x => x.split(",")).map(p => (p(0),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),md5Hash(p(1)+p(2)+p(3)+p(4)+p(5)+p(6)))))
+
+    val inp_md5 = inp_tuple1.map{ case( p,q  )  => (p,q._1,q._2) }  //_._1.toString().concat(_.2.toString()))
 
 
     val inp1 = inp.map(x => (x.split(",")(0), x))
 
-    val inp_withmd5 = inp1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
+    val inp_withmd5 = inp1.mapValues(x =>(x, md5Hash( x))).map(_._2)
+
+    val inp_withmd5_ = inp_withmd5.map(_._2).map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+
+    val tab = sc.textFile(args(2))
+
+    val table = tab.map(x => (x.split(",")(0), x))
+    //New changed records //not required
+    //val change = change_stage1.join(table).map(_._2._1).map(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+
+    val table_tuple = table.mapValues(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+
+    println(inp_md5.collect().mkString(":::"))
+
+    //Filter only active record for further processing
+
+   // val table_tuple1 = table_tuple.filter(_._7 = "31-Dec-9999")
+
+    //Identify new records do - inp file left outer join table and filter out table key is Null
 
 
     //identify new or changed records
 
     //to do set end date in dw to null //joining on md5 of all cols
-    val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
+    /*val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
     //making it tuple of no of cols
     val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-9999"))
 
@@ -71,18 +91,15 @@ object sparketl1 {
 
     //above record  do a inner join with snapshot to identify change recods
     val change_stage1 = out.map(x => (x.split(",")(0), x))
-  val tab = sc.textFile(args(2))
 
-    val table = tab.map(x => (x.split(",")(0), x))
-//New changed records //not required
-   val change = change_stage1.join(table).map(_._2._1)
 
   //Old changed records  //to do end date in table but first remove existing end_date
-    //identify the lates records in table that needs to be endated using max(startdate) = p(7)  Note - Date is kept as numeric like 13072015 is 13 sep 2015
+    //identify the latest// records in table that needs to be endated using max(startdate) = p(7)  Note - Date is kept as numeric like 13072015 is 13 sep 2015
     //chane1 can be cache
   val change1 = change_stage1.join(table).map(_._2._2)
 
-    val change1_latest_rec = change1.map(x => x.split(",")).map(p => (p(0),p(7).toInt)).reduceByKey((x, y) =>  math.max(x, y)).map(p => (p,1)) //setting dummy
+   // val change1_latest_rec = change1.map(x => x.split(",")).map(p => (p(0),p(7).toInt)).reduceByKey((x, y) =>  math.max(x, y)).map(p => (p,1)) //setting dummy
+
 
 
     //join with table based on key and end start date
@@ -92,7 +109,7 @@ object sparketl1 {
 
 
     val table_reformat = tab.map(x => x.split(",")).map(p => ( (p(0),p(7).toInt),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8))))
-  // identify un chnged records and old version of hanged records..older thn latest one
+  // identify un chnged records and old version of changed records..older than latest one
      val unchanged = table_reformat.leftOuterJoin(change1_latest_rec).filter(_._2._2 == None).map(_._2._1)
 
     //But above will also not have the multiple old versions of changed rcords.to add
@@ -100,14 +117,14 @@ object sparketl1 {
 
     //the final record set is union of 2 changed (new) + new +changed (existing) + not changed (exising)
 
-    val final1 = out1.union(final_out_changes_existing).union(unchanged)
+    val final1 = out1.union(final_out_changes_existing).union(unchanged) */
 
 
-    println(final1.collect().mkString(":::"))
+    //println(inp_withmd5_.collect().mkString(":::"))
    //final1.saveAsTextFile("table_final")
 
     //102,456,rajib,,32,mts,A,13082015,31-Dec-2015
-    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+   /* val sqlContext = new org.apache.spark.sql.SQLContext(sc)
     import sqlContext.createSchemaRDD
 
 
@@ -131,7 +148,7 @@ object sparketl1 {
     // The results of SQL queries are SchemaRDDs and support all the normal RDD operations.
     // The columns of a row in the result can be accessed by ordinal.
     teenagers.map(t => "id: " + t(0)).collect().foreach(println)
-
+*/
 
 
   }
