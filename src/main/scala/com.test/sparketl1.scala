@@ -46,26 +46,30 @@ object sparketl1 {
 
     val inp_tuple = inp.map(x => x.split(",")).map(p => (p(0),p(0),p(1)))
 
-    val inp_tuple1 = inp.map(x => x.split(",")).map(p => (p(0),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),md5Hash(p(1)+p(2)+p(3)+p(4)+p(5)+p(6)))))
+    val inp_tuple1 = inp.map(x => x.split(",")).map(p => (p(0),(p(1),p(2),p(3),p(4),p(5),p(6),md5Hash(p(1)+p(2)+p(3)+p(4)+p(5)+p(6)))))
 
-    val inp_md5 = inp_tuple1.map{ case( p,q  )  => (p,q._1,q._2) }  //_._1.toString().concat(_.2.toString()))
+    val inp_md5 = inp_tuple1.map{ case( p,q  )  => (p, (p,q._1,q._2,q._7)) }  //_._1.toString().concat(_.2.toString()))
+
+    //val actinp = inp_md5.map(x => x.split(","))
+    val tabl = sc.textFile(args(2))
 
 
-    val inp1 = inp.map(x => (x.split(",")(0), x))
+    val tab_tuple1 = tabl.map(x => x.split(",")).map(p => (p(0),(p(1),p(2),p(3),p(4),p(5),p(6),md5Hash(p(1)+p(2)+p(3)+p(4)+p(5)+p(6)))))
 
-    val inp_withmd5 = inp1.mapValues(x =>(x, md5Hash( x))).map(_._2)
+    val tab_md5 = tab_tuple1.map{ case( p,q  )  => (p,q._1,q._2,q._7) }
 
-    val inp_withmd5_ = inp_withmd5.map(_._2).map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+    val out = tab_tuple1.leftOuterJoin(tab_tuple1)
 
-    val tab = sc.textFile(args(2))
+    import com.test.test_cdc._
 
-    val table = tab.map(x => (x.split(",")(0), x))
+    val oup = out.map(x => check(x) )
+
     //New changed records //not required
     //val change = change_stage1.join(table).map(_._2._1).map(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
 
-    val table_tuple = table.mapValues(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+    //val table_tuple = table.mapValues(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
 
-    println(inp_md5.collect().mkString(":::"))
+    println(oup.collect().mkString(":::"))
 
     //Filter only active record for further processing
 
@@ -75,11 +79,11 @@ object sparketl1 {
 
 
     //identify new or changed records
-
+/*
     //to do set end date in dw to null //joining on md5 of all cols
-    /*val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
+    val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
     //making it tuple of no of cols
-    val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-9999"))
+  //  val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-9999"))
 
     //adding end_dt is null start date as current date
 
@@ -90,7 +94,7 @@ object sparketl1 {
 
 
     //above record  do a inner join with snapshot to identify change recods
-    val change_stage1 = out.map(x => (x.split(",")(0), x))
+    //val change_stage1 = out.map(x => (x.split(",")(0), x))
 
 
   //Old changed records  //to do end date in table but first remove existing end_date
