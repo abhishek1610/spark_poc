@@ -1,3 +1,4 @@
+
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -31,12 +32,20 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar
 
-case class Person (id: String, depid: String,name: String,sur: String,smtg: String, dept: String,grade: String )
+// this is used to implicitly convert an RDD to a DataFrame.
+
+case class Person (id: String, depid: String,name: String,sur: String,smtg: String, dept: String,grade: String,md5col :String  )
+case class input1( id:Int, payrolelid:Int,name:String, surname:String,age:Int ,company:String,dept:String,md5col :String )
+case class table1( id:Int, payrolelid:Int,name:String, surname:String,age:Int ,company:String,dept:String,startdt:String, enddate:String )
 
 
 object sparketl1 {
   def main(args: Array[String]) {
     val sc = new SparkContext(new SparkConf().setAppName("Spark Count").setMaster("local[2]"))
+    val sqlContext1 = new org.apache.spark.sql.SQLContext(sc)
+
+    import sqlContext1.implicits._
+
     //val threshold = args(1).toInt
 
     // split each document into words
@@ -44,46 +53,45 @@ object sparketl1 {
 
     val snpsht = sc.textFile(args(1))
 
-    val inp_tuple = inp.map(x => x.split(",")).map(p => (p(0),p(0),p(1)))
+    val inp1 = inp.map(x => x.split(",")).map{p => (p(0), p(1), p(2), p(3), p(4), p(5), p(6))}
+      //.map{x =>(x._1, x._2, x._3, x._4, x._5, x._6, x._7)  }//.toDF()
+    val inp1df = inp1.map { x => input1(x._1.toInt, x._2.toInt, x._3, x._4, x._5.toInt, x._6, x._7,"test" )}.toDF()
+    val snpsht1 = snpsht.map(x => x.split(",")).map(p => (p(0), p(1), p(2), p(3), p(4), p(5), p(6)))
+    val snpdf = snpsht1.map { x => input1(x._1.toInt, x._2.toInt, x._3, x._4, x._5.toInt, x._6, x._7,"test" ) }.toDF()
 
-    val inp_tuple1 = inp.map(x => x.split(",")).map(p => (p(0),(p(1),p(2),p(3),p(4),p(5),p(6),md5Hash(p(1)+p(2)+p(3)+p(4)+p(5)+p(6)))))
+    //new
 
-    val inp_md5 = inp_tuple1.map{ case( p,q  )  => (p, (p,q._1,q._2,q._7)) }  //_._1.toString().concat(_.2.toString()))
+    val input_tab = inp1df.registerTempTable("input_tab")
 
-    //val actinp = inp_md5.map(x => x.split(","))
-    val tabl = sc.textFile(args(2))
+    val snptable = snpdf.registerTempTable("snapshot_tab")
 
 
-    val tab_tuple1 = tabl.map(x => x.split(",")).map(p => (p(0),(p(1),p(2),p(3),p(4),p(5),p(6),md5Hash(p(1)+p(2)+p(3)+p(4)+p(5)+p(6)))))
+    //new
 
-    val tab_md5 = tab_tuple1.map{ case( p,q  )  => (p,q._1,q._2,q._7) }
+    val new_rcds = sqlContext1.sql("select input_tab.id from input_tab left outer join snapshot_tab on input_tab.id = snapshot_tab.id where snapshot_tab.id is null")
 
-    val out = tab_tuple1.leftOuterJoin(tab_tuple1)
+    //chngd
 
-    import com.test.test_cdc._
+    val chngd_rcds = sqlContext1.sql("select input_tab.id from input_tab inner join snapshot_tab on input_tab.id = snapshot_tab.id where snapshot_tab.md5col <> input_tab.md5col ")
 
-    val oup = out.map(x => check(x) )
 
-    //New changed records //not required
-    //val change = change_stage1.join(table).map(_._2._1).map(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+    new_rcds.map(t =>  t(2)).collect().foreach(println)
 
-    //val table_tuple = table.mapValues(p =>  (p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8)))
+    // val inp_withmd5 = inp1.map{x => input1.id, x(1)}
+    /* val snpsht_withmd5 = snpsht1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
 
-    println(oup.collect().mkString(":::"))
 
-    //Filter only active record for further processing
+    //val inp1 = inp.map(x => (x.split(",")(0), x))
 
-   // val table_tuple1 = table_tuple.filter(_._7 = "31-Dec-9999")
-
-    //Identify new records do - inp file left outer join table and filter out table key is Null
+    val inp_withmd5 = inp1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
 
 
     //identify new or changed records
-/*
+
     //to do set end date in dw to null //joining on md5 of all cols
     val out = inp_withmd5.leftOuterJoin(snpsht_withmd5).filter(_._2._2 == None).map(_._2._1)
     //making it tuple of no of cols
-  //  val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-9999"))
+    val out1 =out.map(x => x.split(",")).map(p => (p(0),p(1),p(2),p(3),p(4),p(5),p(6),"17-Sep-2015","31-Dec-9999"))
 
     //adding end_dt is null start date as current date
 
@@ -94,16 +102,19 @@ object sparketl1 {
 
 
     //above record  do a inner join with snapshot to identify change recods
-    //val change_stage1 = out.map(x => (x.split(",")(0), x))
+    val change_stage1 = out.map(x => (x.split(",")(0), x))
+    val tab = sc.textFile(args(2))
 
+    val table = tab.map(x => (x.split(",")(0), x))
+    //New changed records //not required
+    val change = change_stage1.join(table).map(_._2._1)
 
-  //Old changed records  //to do end date in table but first remove existing end_date
-    //identify the latest// records in table that needs to be endated using max(startdate) = p(7)  Note - Date is kept as numeric like 13072015 is 13 sep 2015
+    //Old changed records  //to do end date in table but first remove existing end_date
+    //identify the lates records in table that needs to be endated using max(startdate) = p(7)  Note - Date is kept as numeric like 13072015 is 13 sep 2015
     //chane1 can be cache
-  val change1 = change_stage1.join(table).map(_._2._2)
+    val change1 = change_stage1.join(table).map(_._2._2)
 
-   // val change1_latest_rec = change1.map(x => x.split(",")).map(p => (p(0),p(7).toInt)).reduceByKey((x, y) =>  math.max(x, y)).map(p => (p,1)) //setting dummy
-
+    val change1_latest_rec = change1.map(x => x.split(",")).map(p => (p(0),p(7).toInt)).reduceByKey((x, y) =>  math.max(x, y)).map(p => (p,1)) //setting dummy
 
 
     //join with table based on key and end start date
@@ -113,38 +124,38 @@ object sparketl1 {
 
 
     val table_reformat = tab.map(x => x.split(",")).map(p => ( (p(0),p(7).toInt),(p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8))))
-  // identify un chnged records and old version of changed records..older than latest one
-     val unchanged = table_reformat.leftOuterJoin(change1_latest_rec).filter(_._2._2 == None).map(_._2._1)
+    // identify un chnged records and old version of hanged records..older thn latest one
+    val unchanged = table_reformat.leftOuterJoin(change1_latest_rec).filter(_._2._2 == None).map(_._2._1)
 
     //But above will also not have the multiple old versions of changed rcords.to add
     //to doo merge final_out1 and final_out_changes_existing using union to create final scd2 type table
 
     //the final record set is union of 2 changed (new) + new +changed (existing) + not changed (exising)
 
-    val final1 = out1.union(final_out_changes_existing).union(unchanged) */
+    val final1 = out1.union(final_out_changes_existing).union(unchanged)
 
 
-    //println(inp_withmd5_.collect().mkString(":::"))
-   //final1.saveAsTextFile("table_final")
+    println(final1.collect().mkString(":::"))
+    //final1.saveAsTextFile("table_final")
 
     //102,456,rajib,,32,mts,A,13082015,31-Dec-2015
-   /* val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-    import sqlContext.createSchemaRDD
+   // val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    //import sqlContext.createSchemaRDD
 
 
 
     val today = Calendar.getInstance().getTime()
     val minuteFormat = new SimpleDateFormat("mm")
     val currentMinuteAsString = minuteFormat.format(today)
-   /* DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    Date date = new Date();
-    val dat1= dateFormat.format(date)*/
+    /* DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+     Date date = new Date();
+     val dat1= dateFormat.format(date)*/
     println(today) //2014/08/06 15:59:48
 
     val test_sql1 = final1.map(p => Person(p._1,p._2,p._3,p._4,p._5,p._6,p._7)).toSchemaRDD
 
     println(test_sql1.collect().mkString(":::"))
-      test_sql1.registerTempTable("test_sql1")
+    test_sql1.registerTempTable("test_sql1")
 
     // SQL statements can be run by using the sql methods provided by sqlContext.
     val teenagers = sqlContext.sql("SELECT id FROM test_sql1 WHERE name='rajib'")
@@ -152,49 +163,50 @@ object sparketl1 {
     // The results of SQL queries are SchemaRDDs and support all the normal RDD operations.
     // The columns of a row in the result can be accessed by ordinal.
     teenagers.map(t => "id: " + t(0)).collect().foreach(println)
-*/
+
 
 
   }
 
-   /*def test_change(inp: RDD) : Boolean =
-    { val test = inp.map{case (key, value) => value }.map {case (key, value) => value}
-      val check= test:RDD[Any].filter
+  /*def test_change(inp: RDD) : Boolean =
+   { val test = inp.map{case (key, value) => value }.map {case (key, value) => value}
+     val check= test:RDD[Any].filter
+   } */
 
-    } */
+  //TO DO take this value from HBASE
+  // val seed=200  // lookup file for sequence generator
 
-      //TO DO take this value from HBASE
-   // val seed=200  // lookup file for sequence generator
+  /*  to implement suurogate key
+      val items_and_ids = inp.zipWithIndex()
+      // Use a map function to increase the value of the id (the second element in the tuple) by adding the seed to it
+      val items_and_ids_mapped = items_and_ids.map(x => (x._2 + seed, x._1))  */
 
-/*  to implement suurogate key
-    val items_and_ids = inp.zipWithIndex()
+  //val items_and_ids_mapped = items_and_ids_mapped1.union(seed)
 
-    // Use a map function to increase the value of the id (the second element in the tuple) by adding the seed to it
-    val items_and_ids_mapped = items_and_ids.map(x => (x._2 + seed, x._1))  */
+  // Show the output, note that I've move the id to be the first element in the tupl
+  // println(items_and_ids_mapped.collect().mkString(":::"))
+  //val cdc1 = new CDC_check
 
-    //val items_and_ids_mapped = items_and_ids_mapped1.union(seed)
+  //val oup = ()
+  //val out=items_and_ids_mapped.saveAsTextFile(String)
 
-    // Show the output, note that I've move the id to be the first element in the tupl
-   // println(items_and_ids_mapped.collect().mkString(":::"))
-    //val cdc1 = new CDC_check
-
-    //val oup = ()
-    //val out=items_and_ids_mapped.saveAsTextFile(String)
-
-    //System.out.println(charCounts.collect().mkString(", "))
+  //System.out.println(charCounts.collect().mkString(", ")) */
 
 
-  def md5Hash(text: String) : String =
-    java.security.MessageDigest.getInstance("MD5").digest(text.getBytes()).map(0xFF & _).map { "%02x".format(_) }.foldLeft(""){_ + _}
+    def md5Hash(text: String): String = {
+      java.security.MessageDigest.getInstance("MD5").digest(text.getBytes()).map(0xFF & _).map {
+        "%02x".format(_)
+      }.foldLeft("") {
+        _ + _
+      }
+    }
 
 
-
-
- /* def compare(inp: RDD,snpsht:RDD) : RDD = {
-
-    val out = inp.leftOuterJoin
   }
 
-  {} */
+  /* def compare(inp: RDD,snpsht:RDD) : RDD = {
+     val out = inp.leftOuterJoin
+   }
+   {} */
 
 }
