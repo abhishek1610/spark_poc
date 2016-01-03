@@ -75,7 +75,7 @@ object sparketl1 {
     val chngd_rcds = sqlContext1.sql("select input_tab.id from input_tab inner join snapshot_tab on input_tab.id = snapshot_tab.id where snapshot_tab.md5col <> input_tab.md5col ")
 
 
-    new_rcds.map(t =>  t(2)).collect().foreach(println)
+    new_rcds.map(t =>  t(0)).collect().foreach(println)
 
     // val inp_withmd5 = inp1.map{x => input1.id, x(1)}
     /* val snpsht_withmd5 = snpsht1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
