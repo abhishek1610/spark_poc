@@ -55,33 +55,17 @@ object sparketl1 {
 
     val inp1 = inp.map(x => x.split(",")).map{p => (p(0), p(1), p(2), p(3), p(4), p(5), p(6))}
       //.map{x =>(x._1, x._2, x._3, x._4, x._5, x._6, x._7)  }//.toDF()
-    val inp1df = inp1.map { x => input1(x._1.toInt, x._2.toInt, x._3, x._4, x._5.toInt, x._6, x._7,"test" )}.toDF()
+    val inp1df = inp1.map { x => input1(x._1.toInt, x._2.toInt, x._3, x._4, x._5.toInt, x._6, x._7,"test" )}
     val snpsht1 = snpsht.map(x => x.split(",")).map(p => (p(0), p(1), p(2), p(3), p(4), p(5), p(6)))
-    val snpdf = snpsht1.map { x => input1(x._1.toInt, x._2.toInt, x._3, x._4, x._5.toInt, x._6, x._7,"test" ) }.toDF()
+    val snpdf = snpsht1.map { x => input1(x._1.toInt, x._2.toInt, x._3, x._4, x._5.toInt, x._6, x._7,"test" ) }
 
-    //new
+   
 
-    val input_tab = inp1df.registerTempTable("input_tab")
-
-    val snptable = snpdf.registerTempTable("snapshot_tab")
-
-
-    //new
-
-    val new_rcds = sqlContext1.sql("select input_tab.id from input_tab left outer join snapshot_tab on input_tab.id = snapshot_tab.id where snapshot_tab.id is null")
-
-    //chngd
-
-    val chngd_rcds = sqlContext1.sql("select input_tab.id from input_tab inner join snapshot_tab on input_tab.id = snapshot_tab.id where snapshot_tab.md5col <> input_tab.md5col ")
+     val inp_withmd5 = inp1.map{x => input1.id, x(1)}
+     val snpsht_withmd5 = snpsht1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
 
 
-    new_rcds.map(t =>  t(0)).collect().foreach(println)
-
-    // val inp_withmd5 = inp1.map{x => input1.id, x(1)}
-    /* val snpsht_withmd5 = snpsht1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
-
-
-    //val inp1 = inp.map(x => (x.split(",")(0), x))
+    val inp1 = inp.map(x => (x.split(",")(0), x))
 
     val inp_withmd5 = inp1.mapValues(x =>(x, md5Hash( x))).map(_._2).map{ case (x,y )  => (y,x)}
 
